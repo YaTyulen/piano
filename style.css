@@ -1,0 +1,68 @@
+:root {
+  --widthKey: 50px;
+  --whiteKeyColor: #ffffff;
+  --blackKeyColor: #000000;
+  --whiteKeyHoverColor: #c3c3c3;
+  --blackKeyHoverColor: #414141;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #2887e3;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.piano-keyboard {
+  display: flex;
+  border: 5px solid #000000;
+  width: auto
+}
+
+.octave {
+  display: flex;
+  background-color: #2d2d2d;
+  width: auto;
+  position: relative;
+}
+
+.key-white {
+  width: var(--widthKey);
+  height: 120px;
+  background-color: var(--whiteKeyColor);
+  border: 1px solid #000000;
+  position: relative;
+}
+
+.key-white:hover {
+  background-color: var(--whiteKeyHoverColor);
+  cursor: pointer;
+}
+
+.key-white:has(.key-black:hover){
+  background-color: var(--whiteKeyColor);
+}
+
+.key-black {
+  width: 30px;
+  height: 70px;
+  background-color: var(--blackKeyColor);
+  position: absolute;
+  left: 35px;
+  z-index: 2;
+}
+
+.key-black:hover{
+  background-color: var(--blackKeyHoverColor);
+  cursor: pointer;
+  z-index: 2;
+}
