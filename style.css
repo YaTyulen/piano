@@ -69,7 +69,23 @@ ul, li {
 
 /* стили для мобильной версии */
 @media (width < 640px) {
-  body {
+  .piano-keyboard {
     transform: rotate(90deg);
+    width: 90vh;
+  }
+
+  .octave {
+    width: 100%;
+  }
+
+  .key-white {
+    height: 80vw;
+    /* width: calc(100% / 24) */
+  }
+
+  .key-black {
+    width: calc(70vh / 24);
+    height: 50vw;
+    left: 25px;
   }
 }
