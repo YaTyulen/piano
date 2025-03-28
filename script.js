@@ -9,6 +9,13 @@ keyList.forEach((key, index) => {
         event.stopPropagation(); 
         playNote(index)
     })
+
+    // если index меньше 24, то добавляем обработчик событий этой клавише
+    Number(index) <= 24 && key.addEventListener('touchstart', (event) => {
+        console.log();
+        event.stopPropagation(); 
+        playNote(index)
+    })
 })
 
 // Функция воспроизведения звука, в засисимости от index клавиши
