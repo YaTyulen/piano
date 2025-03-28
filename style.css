@@ -16,6 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 ul, li {
@@ -62,7 +63,7 @@ ul, li {
   height: 60%;
   background-color: var(--blackKeyColor);
   position: absolute;
-  left: 43px;
+  left: 70%;
   top: -2px;
   z-index: 2;
   border-radius: 0 0 10px 10px;
@@ -91,6 +92,5 @@ ul, li {
 
   .key-black {
     width: calc(70vh / 24);
-    left: 27px;
   }
 }
