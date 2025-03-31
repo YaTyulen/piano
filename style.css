@@ -8,6 +8,9 @@
   --background-app: #7c9cbb;
   --background-second: #383838;
   --mainLightColor: #ffffff;
+  --backgroundSwitch: #383838;
+  --colorSwitchActive: #ffffff;
+  --colorSwitchOff: #5e5e5e;
   --fontColorPanel: #ffffff;
   --fontMain: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
@@ -73,6 +76,8 @@ body {
   overflow: hidden;
   height: 6px;
   border-radius: 6px;
+  background-color: var(--background-second);
+  margin: 0;
 }
 
 .piano-volume-slider::-webkit-slider-runnable-track {
@@ -87,13 +92,14 @@ body {
 
 /* Стилизация ползунка */
 .piano-volume-slider::-webkit-slider-thumb {
-  background: var(--background-second);
+  background: var(--mainLightColor);
   cursor: pointer;
   width: 15px;
   height: 15px;
   -webkit-appearance: none;
+  appearance: none;
   margin-top: -4px;
-  box-shadow: -200px 0 0 200px var(--mainLightColor);
+  box-shadow: -100px 0 0 100px var(--mainLightColor);
 }
 
 .piano-volume-slider::-moz-range-thumb {
@@ -107,8 +113,74 @@ body {
   margin: 0;
 }
 
+/* ------------------------------------- Стили включателя подсказок  ------------------------------------- */
+
 .piano-help {
   font-size: 20px;
+}
+
+.piano-help-label {
+  display: flex;
+  gap: 10px;
+}
+
+/* ------------------------------------- Switch  ------------------------------------- */
+.piano-help-switch {
+  display: none;
+}
+
+.switch {
+  width: 60px;
+  height: 30px;
+  background-color: var(--backgroundSwitch);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.switch::before {
+  display: block;
+  content: '';
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  background-color: var(--colorSwitchOff);
+  position: relative;
+  left: 3px;
+  animation: switch-off 0.3s linear forwards;
+}
+
+.piano-help-switch:checked + .switch::before {
+  animation: switch 0.3s linear forwards;
+  background-color: var(--colorSwitchActive);
+}
+
+@keyframes switch {
+  0% {
+    left: 3px;
+  }
+  60% {
+    left: 4px;
+    width: 46px;
+  }
+  100% {
+    left: 33px;
+    width: 24px;
+  }
+}
+
+@keyframes switch-off {
+  0% {
+    left: 33px;
+  }
+  40% {
+    left: 4px;
+    width: 46px;
+  }
+  100% {
+    left: 3px;
+    width: 24px;
+  }
 }
 
 
@@ -160,6 +232,7 @@ body {
   cursor: pointer;
   z-index: 2;
 }
+
 
 /* ------------------------------------- стили для мобильной версии ------------------------------------- */
 @media (width < 640px) {
