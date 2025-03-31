@@ -31,7 +31,6 @@ ul, li {
 .piano-keyboard {
   display: flex;
   padding: 100px 30px 30px 30px;
-  margin: 20px;
   background-color: var(--background-piano);
   border-radius: 10px;
   width: auto;
@@ -81,10 +80,16 @@ ul, li {
 
 /* стили для мобильной версии */
 @media (width < 640px) {
+  body {
+    overflow-y: auto;
+  }
+
   .piano-keyboard {
     transform: rotate(90deg);
     height: 35vh;
     padding: 70px 30px 30px 30px;
+    position: relative;
+    top: -50px;
   }
 
   .octave {
