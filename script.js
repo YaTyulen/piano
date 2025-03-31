@@ -1,3 +1,5 @@
+let currentVolume = 0.5
+
 let keyList = document.querySelectorAll('.piano-key') // Получаем список клавиш
 
 keyList.forEach((key, index) => {
@@ -12,7 +14,6 @@ keyList.forEach((key, index) => {
 
     // если index меньше 24, то добавляем обработчик событий этой клавише
     Number(index) <= 24 && key.addEventListener('touchstart', (event) => {
-        console.log();
         event.stopPropagation(); 
         playNote(index)
     })
@@ -20,5 +21,18 @@ keyList.forEach((key, index) => {
 
 // Функция воспроизведения звука, в засисимости от index клавиши
 function playNote(index) {
-    return new Audio(`audio/key${index}.mp3`).play();
+    let audio = new Audio(`audio/key${index}.mp3`);
+    audio.volume = currentVolume;
+    return audio.play();
+}
+
+
+
+let range = document.querySelector('input[type="range"].piano-volume-slider'); // получаем слайдер громкости
+
+range.addEventListener('input', (event) => handlerVolumePiano(event.target.value)) // навешиваем обработчик изменения громкости на input[type="range"]
+
+// Функция обработки изменения громкости
+function handlerVolumePiano(volume) {
+    currentVolume = volume
 }

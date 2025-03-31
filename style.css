@@ -6,6 +6,18 @@
   --blackKeyHoverColor: #414141;
   --background-piano: #151515;
   --background-app: #7c9cbb;
+  --background-second: #383838;
+  --mainLightColor: #ffffff;
+  --fontColorPanel: #ffffff;
+  --fontMain: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+/* ------------------------------------- Общие стили ------------------------------------- */
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 body {
@@ -13,6 +25,7 @@ body {
   margin: 0;
   background-color: var(--background-app);
   overflow: hidden;
+  font-family: var(--fontMain)
 }
 
 .piano-container {
@@ -22,24 +35,94 @@ body {
   align-items: center;
 }
 
-ul, li {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+.piano {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--background-piano);
+  border-radius: 10px;
+  padding: 30px;
 }
+
+/* -------------------------------------Стили панели управления ------------------------------------- */
+
+.piano-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--fontColorPanel);
+}
+
+.piano-header {
+  margin: 0;
+}
+
+.piano-volume-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+/* Стилизация трека */
+.piano-volume-slider  {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  overflow: hidden;
+  height: 6px;
+  border-radius: 6px;
+}
+
+.piano-volume-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  background-color: var(--background-second);
+}
+
+.piano-volume-slider::-moz-range-track {
+  height: 6px;
+  background-color: var(--background-second);
+}
+
+/* Стилизация ползунка */
+.piano-volume-slider::-webkit-slider-thumb {
+  background: var(--background-second);
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  -webkit-appearance: none;
+  margin-top: -4px;
+  box-shadow: -200px 0 0 200px var(--mainLightColor);
+}
+
+.piano-volume-slider::-moz-range-thumb {
+  background: var(--mainLightColor);
+  cursor: pointer;
+  height: 6px;
+  border-radius: 0px;
+  appearance: none;
+  box-shadow: -200px 0px 0px 200px var(--mainLightColor);
+  padding: 0px;
+  margin: -4px;
+}
+
+.piano-help {
+  font-size: 20px;
+}
+
+
+/* ------------------------------------- Стили клавиатуры ------------------------------------- */
 
 .piano-keyboard {
   display: flex;
-  padding: 100px 30px 30px 30px;
-  background-color: var(--background-piano);
-  border-radius: 10px;
   width: auto;
   height: 50vh;
 }
 
 .octave {
   display: flex;
-  background-color: #2d2d2d;
+  background-color: var(--background-piano);
   width: 90%;
   position: relative;
 }
@@ -78,7 +161,7 @@ ul, li {
   z-index: 2;
 }
 
-/* стили для мобильной версии */
+/* ------------------------------------- стили для мобильной версии ------------------------------------- */
 @media (width < 640px) {
   body {
     overflow-y: auto;
