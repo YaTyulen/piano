@@ -31,6 +31,7 @@ ul, li {
 .piano-keyboard {
   display: flex;
   padding: 100px 30px 30px 30px;
+  margin: 20px;
   background-color: var(--background-piano);
   border-radius: 10px;
   width: auto;
@@ -66,7 +67,7 @@ ul, li {
   height: 60%;
   background-color: var(--blackKeyColor);
   position: absolute;
-  left: 70%;
+  left: 75%;
   top: -2px;
   z-index: 2;
   border-radius: 0 0 10px 10px;
@@ -83,6 +84,7 @@ ul, li {
   .piano-keyboard {
     transform: rotate(90deg);
     height: 35vh;
+    padding: 70px 30px 30px 30px;
   }
 
   .octave {
@@ -90,10 +92,10 @@ ul, li {
   }
 
   .key-white {
-    width: calc(100vh / 24);
+    width: calc(130vh / 24);
   }
 
   .key-black {
-    width: calc(70vh / 24);
+    width: calc(90vh / 24);
   }
 }
