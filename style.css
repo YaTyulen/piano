@@ -199,6 +199,15 @@ body {
   position: relative;
 }
 
+.piano-key{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 18px;
+  font-family: var(--fontMain);
+  color: var(--whiteKeyHoverColor);
+}
+
 .key-white {
   width: calc(100vw / 24);
   background-color: var(--whiteKeyColor);
@@ -231,6 +240,10 @@ body {
   background-color: var(--blackKeyHoverColor);
   cursor: pointer;
   z-index: 2;
+}
+
+.help {
+  display: none;
 }
 
 
