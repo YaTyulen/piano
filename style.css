@@ -104,7 +104,7 @@ body {
   appearance: none;
   box-shadow: -200px 0px 0px 200px var(--mainLightColor);
   padding: 0px;
-  margin: -4px;
+  margin: 0;
 }
 
 .piano-help {
@@ -167,10 +167,10 @@ body {
     overflow-y: auto;
   }
 
-  .piano-keyboard {
+  .piano {
     transform: rotate(90deg);
     height: 35vh;
-    padding: 70px 30px 30px 30px;
+    padding: 30px;
     position: relative;
     top: -20px;
   }
