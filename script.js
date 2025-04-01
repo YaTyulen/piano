@@ -6,19 +6,15 @@ let keyList = document.querySelectorAll('.piano-key') // Получаем спи
 
 keyList.forEach((key, index) => {
     // итерируемся по списку клавиш и переводим index клавиши в строку
-    index = String(index + 1).length === 1 ? '0'+ (index + 1) : index + 1;
+    index = String(index).padStart(2, "0")
 
     // если index меньше 24, то добавляем обработчик событий этой клавише
-    Number(index) <= 24 && key.addEventListener('click', (event) => {
-        event.stopPropagation(); 
-        playNote(index)
-    })
-
-    // если index меньше 24, то добавляем обработчик событий этой клавише
-    Number(index) <= 24 && key.addEventListener('touchstart', (event) => {
-        event.stopPropagation(); 
-        playNote(index)
-    })
+    if(Number(index) <= 24){
+        ['click', 'touchstart'].forEach(event => key.addEventListener(event, (e) => {
+            e.stopPropagation(); 
+            playNote(index)
+        }))
+    }
 })
 
 //добавляем обработчик по кнопке клавиатуры
@@ -68,9 +64,7 @@ function handlerVolumePiano(volume) {
 
 // обработчик включения и отключения подсказок клавиш
 switchCheckbox.addEventListener('change', (event) => {
-    console.log(event.target.checked);
     if(event.target.checked) { 
-        console.log(event.target.checked);
         helpList.forEach(key => key.classList.remove('help'))
     } else {
         helpList.forEach(key => key.classList.add('help'))
